@@ -149,17 +149,23 @@ namespace Sudoku
         
         public static bool CheckMatrix(int[,] arr1)
         {
-          
-           
-
-            for (int i = 0; i < arr1.GetLength(0); i++)
+            int[,] arr2 = new int[3,3];
+            int dataLen = 9;
+            int matrixLen = 3;
+            for(int i = 0; i < dataLen; i++)
             {
-                for(int j = 0; j < i; j++)
+              //  int col = i % arr1.GetLength(0);
+                int row = i / arr1.GetLength(0);
+                for(int j = 0; j < matrixLen; j++)
                 {
-                    
-
+                    int col1 = j % arr1.GetLength(1);
+              //      int row1 = j / arr1.GetLength(1);
+                    arr2[row,col1] = arr1[row, col1];
+                    Console.WriteLine(arr2[row, col1]);
                 }
+              
             }
+         
             return false;
 
            
