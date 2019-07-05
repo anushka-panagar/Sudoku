@@ -46,6 +46,7 @@ namespace Sudoku
                     catch (FormatException)
                     {
                         Console.WriteLine("element - [{0},{1}] is not an integer", i, j);
+                        j--;
                     }
                 }
             }
@@ -146,7 +147,7 @@ namespace Sudoku
                     {
                         // pass the row, column and 9 x 9 array which generates the region and returns back 3 x 3 array to check the values 
                         // After Receiving the 3 x 3 array ; convert the 2D array into 1D where checking the distinct values of the array is easier 
-                        int[] tmp = convertArray(testRegion(arr1, i, j));
+                        int[] tmp = ConvertArray(TestRegion(arr1, i, j));
 
                         // Check the 1D array's unique / distinct items
                         IEnumerable<int> uniqueItems = tmp.Distinct<int>();
@@ -181,7 +182,7 @@ namespace Sudoku
         /// <param name="startRow"></param>
         /// <param name="startCol"></param>
         /// <returns> 3x3 2D array(tmpArray)</returns>
-        public static int[,] testRegion(int[,] arr1, int startRow, int startCol)
+        public static int[,] TestRegion(int[,] arr1, int startRow, int startCol)
         {
             // initialize 3 x 3 array to store the sub arrays
             int[,] tmpArray = new int[3, 3];
@@ -204,7 +205,7 @@ namespace Sudoku
         /// </summary>
         /// <param name="array"></param>
         /// <returns>1D array(tempArray)</returns>
-        public static int[] convertArray(int[,] array)
+        public static int[] ConvertArray(int[,] array)
         {
             // passing 2D array as paramter
             // initialize 1D array
